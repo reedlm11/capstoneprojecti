@@ -58,4 +58,46 @@ User → Supervisor Agent → Career Specialist → MCP Tools → Cloud Run API 
 
 ---
 
-## Project Structure
+
+---
+
+## Running the Project
+
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+----
+
+uvicorn main:app --reload
+
+-------------------------------------------
+
+gcloud run deploy acc-mcp-server \
+  --source . \
+  --region us-east1 \
+  --allow-unauthenticated
+------------------------------------------------------------------
+
+python3 agent_orchestration.py
+
+------------------------------------------------------------------
+
+https://acc-mcp-server-420216438094.us-east1.run.app/
+
+---------------------------------------------------------------
+###API Usage
+
+GET /fetch_jobs
+
+POST /sync_pipeline
+
+{
+  "title": "AI Intern",
+  "location": "Remote",
+  "company": "OpenAI",
+  "keywords": "ml, python"
+}
+
+
+
